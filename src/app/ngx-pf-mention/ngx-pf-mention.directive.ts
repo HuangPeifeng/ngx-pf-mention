@@ -9,8 +9,8 @@ import {
   ComponentFactoryResolver,
   Renderer
 } from '@angular/core';
-import { NgxFactory, NgxPosition } from './ngx-pf-mention';
-import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.component';
+import { NgxFactory, NgxPosition, NgxOption } from './ngx-pf-mention';
+import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog';
 
 @Directive({
   selector: '[ngxPfMention]'
@@ -21,6 +21,7 @@ export class NgxPfMentionDirective {
   @Input() ngxPfMentionKey = '@' as string;
   @Input() ngxPfMentionProperty = 'name';
   @Input() ngxPfMentionData: any;
+  @Input() ngxPfMentionOption: NgxOption;
 
   @Output() ngxPfMentionOutput = new EventEmitter;
 

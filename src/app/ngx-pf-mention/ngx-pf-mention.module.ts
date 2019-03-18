@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgxPfMentionDirective } from './ngx-pf-mention.directive';
-import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.component';
-import { NgxPfMentionDialogDirective } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.directive';
+import { NgxPfMentionDirective } from '.';
+import { NgxPfMentionDialogComponent, NgxPfMentionDialogDirective } from './ngx-pf-mention-dialog';
 
 @NgModule({
   declarations: [NgxPfMentionDirective, NgxPfMentionDialogComponent, NgxPfMentionDialogDirective],

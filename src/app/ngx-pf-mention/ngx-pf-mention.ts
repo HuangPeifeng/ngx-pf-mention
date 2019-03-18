@@ -14,3 +14,8 @@ export interface NgxSender {
   inputData: any;
   sendData: any;
 }
+
+export interface NgxOption {
+  width?: string;
+  height?: string;
+}

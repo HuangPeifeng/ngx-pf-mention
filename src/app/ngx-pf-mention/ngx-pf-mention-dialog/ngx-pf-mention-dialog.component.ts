@@ -11,7 +11,7 @@ import {
   ElementRef
 } from '@angular/core';
 import { NgxFactory, NgxPosition, NgxSender } from '../ngx-pf-mention';
-import { NgxPfMentionDialogDirective } from './ngx-pf-mention-dialog.directive';
+import { NgxPfMentionDialogDirective } from '.';
 
 @Component({
   selector: 'app-ngx-pf-mention-dialog',
