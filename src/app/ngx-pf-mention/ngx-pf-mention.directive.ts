@@ -9,8 +9,8 @@ import {
   ComponentFactoryResolver,
   Renderer
 } from '@angular/core';
-import { NgxFactory, NgxPosition, NgxOption } from './ngx-pf-mention';
-import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog';
+import { NgxFactory, NgxOption, NgxPosition } from './ngx-pf-mention';
+import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.component';
 
 @Directive({
   selector: '[ngxPfMention]'
