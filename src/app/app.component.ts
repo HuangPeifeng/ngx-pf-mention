@@ -11,6 +11,10 @@ export class AppComponent {
 
   component = TestComponent;
   factory;
+  option = {
+    width: '400px',
+    height: '400px'
+  };
 
   constructor(
     private _resolver: ComponentFactoryResolver,

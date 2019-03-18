@@ -10,7 +10,7 @@ import {
   Renderer,
   ElementRef
 } from '@angular/core';
-import { NgxFactory, NgxPosition, NgxSender } from '../ngx-pf-mention';
+import { NgxFactory, NgxPosition, NgxSender, NgxOption } from '../ngx-pf-mention';
 import { NgxPfMentionDialogDirective } from '.';
 
 @Component({
@@ -22,6 +22,7 @@ export class NgxPfMentionDialogComponent implements OnInit {
   @Input() component;
   @Input() factory: NgxFactory;
   @Input() position: NgxPosition;
+  @Input() option: NgxOption;
   @Input() inputValue = new EventEmitter;
   @Input() data: any;
 
@@ -80,7 +81,9 @@ export class NgxPfMentionDialogComponent implements OnInit {
     if (this.position) {
       return {
         left: this.position.left,
-        top: this.position.top
+        top: this.position.top,
+        width: this.option.width || '300px',
+        height: this.option.height || '300px'
       };
     }
   }

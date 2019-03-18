@@ -97,6 +97,7 @@ export class NgxPfMentionDirective {
     this.componentRef.instance.component = component;
     this.componentRef.instance.factory = factory;
     this.componentRef.instance.position = position;
+    this.componentRef.instance.option = this.ngxPfMentionOption;
     this.componentRef.instance.data = this.ngxPfMentionData;
 
     this.componentRef.instance.send.subscribe(sendVal => {
