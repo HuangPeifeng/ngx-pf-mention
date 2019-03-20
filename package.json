@@ -1,15 +1,15 @@
 {
   "name": "ngx-pf-mention",
-  "version": "0.0.0",
+  "version": "1.0.7",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve -o",
+    "build": "ng-packagr -p src/package.json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
@@ -20,7 +20,9 @@
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
     "core-js": "^2.5.4",
+    "ng-packagr": "^4.7.1",
     "rxjs": "~6.3.3",
+    "tsickle": "^0.34.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
