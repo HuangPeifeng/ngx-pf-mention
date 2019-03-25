@@ -65,6 +65,14 @@ export class NgxPfMentionComponent implements OnInit {
         } else {
           const allValue = this.inputDiv.innerText;
 
+          /** 檢測是否將標記刪除 */
+          if ($event.inputType === 'deleteContentBackward') {
+            const lastValue = this.inputDiv.innerText.substr(this.keyStart - 1, 1);
+            if (lastValue !== this.ngxPfMentionKey) {
+              this.closeDialog();
+            }
+          }
+
           if (!this.isInput) {
             this.keyBefore = allValue.substr(0, this.keyStart - 1);
             this.ketAfter = allValue.substr(this.keyStart + 1);
