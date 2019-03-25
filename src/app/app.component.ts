@@ -13,8 +13,14 @@ export class AppComponent {
   component = TestComponent;
   factory;
   option = {
-    width: '400px',
-    height: '400px'
+    width: '400px'
+  };
+
+  style = {
+    borderColor: '#ccc',
+    borderWidth: '1px',
+    borderRadius: '10px',
+    lineHeight: 2
   };
 
   constructor(

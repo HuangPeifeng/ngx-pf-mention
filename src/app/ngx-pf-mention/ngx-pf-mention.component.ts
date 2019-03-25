@@ -11,10 +11,9 @@ import {
   ViewChild,
   Injector
 } from '@angular/core';
-import { NgxFactory, NgxOption, NgxPosition } from 'dist/app/ngx-pf-mention/ngx-pf-mention';
 import { NgxPfMentionDirective } from './ngx-pf-mention.directive';
 import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.component';
-import { NgxPfMentionService } from './ngx-pf-mention.service';
+import { NgxElemenStyle, NgxFactory, NgxOption, NgxPosition } from './ngx-pf-mention';
 
 @Component({
   selector: 'ngx-pf-mention',
@@ -28,6 +27,8 @@ export class NgxPfMentionComponent implements OnInit {
   @Input() ngxPfMentionProperty = 'name';
   @Input() ngxPfMentionData: any;
   @Input() ngxPfMentionOption: NgxOption;
+  @Input() ngxPfMentionStyle: NgxElemenStyle;
+  @Input() ngxPfMentionFontColor = '#3557ff' as string;
 
   @Output() ngxPfMentionOutput = new EventEmitter;
 
@@ -47,8 +48,7 @@ export class NgxPfMentionComponent implements OnInit {
     private ele: ElementRef,
     private renderer: Renderer,
     private _resolver: ComponentFactoryResolver,
-    private _injector: Injector,
-    private _ngxPfMentionService: NgxPfMentionService
+    private _injector: Injector
   ) { }
 
   ngOnInit() {
@@ -143,7 +143,8 @@ export class NgxPfMentionComponent implements OnInit {
     const beforeStr = allValue.substr(0, this.keyStart - 1);
     const afterStr = allValue.substr(this.keyStart + this.inputVal.length);
 
-    this.inputDiv.innerHTML = `${beforeStr}&nbsp<a style="color: #3557ff">@${value[this.ngxPfMentionProperty]}</a>&nbsp${afterStr}`;
+    this.inputDiv.innerHTML =
+      `${beforeStr}&nbsp<a style="color: ${this.ngxPfMentionFontColor}">@${value[this.ngxPfMentionProperty]}</a>&nbsp${afterStr}`;
   }
 
   /** 建立計算目前指標位置的element */
@@ -172,6 +173,21 @@ export class NgxPfMentionComponent implements OnInit {
       left: `${coords.left}px`,
       top: `${coords.top}px`
     };
+  }
+
+  /** 給予element style */
+  getStyle() {
+    if (this.ngxPfMentionStyle) {
+      return {
+        'background-color': this.ngxPfMentionStyle.backgroundColor || '#ffffff',
+        'color': this.ngxPfMentionStyle.fontColor || '#000000',
+        'border-color': this.ngxPfMentionStyle.borderColor || '#000000',
+        'border-style': this.ngxPfMentionStyle.borderStyle || 'solid',
+        'border-width': this.ngxPfMentionStyle.borderWidth || '1px',
+        'border-radius': this.ngxPfMentionStyle.borderRadius || '0',
+        'line-height': this.ngxPfMentionStyle.lineHeight || 1
+      };
+    }
   }
 
   /** 重設參數 */

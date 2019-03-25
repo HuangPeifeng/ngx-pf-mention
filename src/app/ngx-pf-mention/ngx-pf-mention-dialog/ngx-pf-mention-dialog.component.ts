@@ -79,12 +79,19 @@ export class NgxPfMentionDialogComponent implements OnInit {
 
   getPosition() {
     if (this.position) {
-      return {
-        left: this.position.left,
-        top: this.position.top,
-        width: this.option.width || '300px',
-        height: this.option.height || '300px'
-      };
+      if (this.option) {
+        return {
+          left: this.position.left,
+          top: this.position.top,
+          width: this.option.width || '300px',
+          height: this.option.height || '300px'
+        };
+      } else {
+        return {
+          left: this.position.left,
+          top: this.position.top
+        };
+      }
     }
   }
 }
