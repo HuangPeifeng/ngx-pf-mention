@@ -1,5 +1,6 @@
 import { Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { TestComponent } from './test/test.component';
+import { NgxPfMentionService } from './ngx-pf-mention/ngx-pf-mention.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,20 @@ export class AppComponent {
   component = TestComponent;
   factory;
   option = {
-    width: '400px',
-    height: '400px'
+    width: '400px'
+  };
+
+  style = {
+    borderColor: '#ccc',
+    borderWidth: '1px',
+    borderRadius: '10px',
+    lineHeight: 2
   };
 
   constructor(
     private _resolver: ComponentFactoryResolver,
-    private _injector: Injector
+    private _injector: Injector,
+    private _ngxPfMentionService: NgxPfMentionService
   ) {
     this.factory = {
       resolver: this._resolver,
@@ -26,7 +34,11 @@ export class AppComponent {
     };
   }
 
-  ngxTagsOutput($event) {
-    // console.log($event);
+  ngxPfMentionOutput($event) {
+    console.log($event);
+  }
+
+  get() {
+    console.log(this._ngxPfMentionService.getValue());
   }
 }

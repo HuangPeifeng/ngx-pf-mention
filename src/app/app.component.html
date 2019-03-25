@@ -1,3 +1,8 @@
-<div class="input">
-  <textarea [ngxPfMention]="component" [ngxPfMentionFactory]="factory" [ngxPfMentionOption]="option" (ngxPfMentionOutput)="ngxTagsOutput($event)"></textarea>
-</div>
+<!-- <div class="input">
+  <textarea [ngxPfMention]="component" [ngxPfMentionFactory]="factory" [ngxPfMentionOption]="option" (ngxPfMentionOutput)="ngxPfMentionOutput($event)"></textarea>
+</div> -->
+
+
+<ngx-pf-mention [ngxPfMention]="component" [ngxPfMentionFactory]="factory" [ngxPfMentionOption]="option"
+  [ngxPfMentionStyle]="style" [ngxPfMentionFontColor]="'#ff0000'" (ngxPfMentionOutput)="ngxPfMentionOutput($event)"></ngx-pf-mention>
+<button (click)="get()">get</button>
