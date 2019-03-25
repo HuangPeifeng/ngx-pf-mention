@@ -26,7 +26,7 @@ export class AppComponent {
     };
   }
 
-  ngxTagsOutput($event) {
-    // console.log($event);
+  ngxPfMentionOutput($event) {
+    console.log($event);
   }
 }
