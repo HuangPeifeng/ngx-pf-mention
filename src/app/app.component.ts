@@ -1,5 +1,6 @@
 import { Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { TestComponent } from './test/test.component';
+import { NgxPfMentionService } from './ngx-pf-mention/ngx-pf-mention.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent {
 
   constructor(
     private _resolver: ComponentFactoryResolver,
-    private _injector: Injector
+    private _injector: Injector,
+    private _ngxPfMentionService: NgxPfMentionService
   ) {
     this.factory = {
       resolver: this._resolver,
@@ -28,5 +30,9 @@ export class AppComponent {
 
   ngxPfMentionOutput($event) {
     console.log($event);
+  }
+
+  get() {
+    console.log(this._ngxPfMentionService.getValue());
   }
 }

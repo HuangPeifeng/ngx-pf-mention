@@ -14,6 +14,7 @@ import {
 import { NgxFactory, NgxOption, NgxPosition } from 'dist/app/ngx-pf-mention/ngx-pf-mention';
 import { NgxPfMentionDirective } from './ngx-pf-mention.directive';
 import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.component';
+import { NgxPfMentionService } from './ngx-pf-mention.service';
 
 @Component({
   selector: 'ngx-pf-mention',
@@ -40,15 +41,14 @@ export class NgxPfMentionComponent implements OnInit {
   inputDiv = null;
   inputVal = '';
 
-  private blockCursorSize: { height: number, width: number };
-
   @ViewChild(NgxPfMentionDirective) _dirctive: NgxPfMentionDirective;
 
   constructor(
     private ele: ElementRef,
     private renderer: Renderer,
     private _resolver: ComponentFactoryResolver,
-    private _injector: Injector
+    private _injector: Injector,
+    private _ngxPfMentionService: NgxPfMentionService
   ) { }
 
   ngOnInit() {
@@ -77,10 +77,11 @@ export class NgxPfMentionComponent implements OnInit {
           this.componentRef.instance.inputValue.next(this.inputVal);
 
         }
+
       });
 
     this.renderer.listen(
-      document.body,
+      window,
       'click',
       $event => {
         if (this.componentRef) {

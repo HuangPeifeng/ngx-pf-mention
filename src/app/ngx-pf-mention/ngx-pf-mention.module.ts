@@ -4,6 +4,7 @@ import { NgxPfMentionDirective } from './ngx-pf-mention.directive';
 import { NgxPfMentionDialogComponent } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.component';
 import { NgxPfMentionDialogDirective } from './ngx-pf-mention-dialog/ngx-pf-mention-dialog.directive';
 import { NgxPfMentionComponent } from './ngx-pf-mention.component';
+import { NgxPfMentionService } from './ngx-pf-mention.service';
 
 @NgModule({
   declarations: [NgxPfMentionDirective, NgxPfMentionDialogComponent, NgxPfMentionDialogDirective, NgxPfMentionComponent],
@@ -18,6 +19,9 @@ import { NgxPfMentionComponent } from './ngx-pf-mention.component';
   ],
   entryComponents: [
     NgxPfMentionDialogComponent
+  ],
+  providers: [
+    NgxPfMentionService
   ]
 })
 export class NgxPfMentionModule { }
