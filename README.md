@@ -1,27 +1,107 @@
 # NgxPfMention
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
+NgxPfMention
 
-## Development server
+## 安裝
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+npm i ngx-pf-mention
+```
 
-## Code scaffolding
+## 引用
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`app.module.ts`
+```typescript
+...something...
+import { NgxPfMentionModule } from './ngx-pf-mention/ngx-pf-mention.module';
 
-## Build
+@NgModule({
+  ...something...
+  imports: [...something..., NgxPfMentionModule],
+  ...something...
+})
+export class YourModule {}
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## 快速上手
 
-## Running unit tests
+### 一、Create List View
+```bash
+ng g c Test
+```
+```typescript
+...something...
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  ...something...
+  entryComponents: [...something..., TestComponent],
+  ...something...
+})
+export class YourModule {}
+```
+`test.component.html`
+```typescript
+<ul>
+  <li *ngFor="let item of list" (click)="output(item)">
+    {{ item.name }}
+  </li>
+</ul>
+```
+`test.component.ts`
+```typescript
+export class TestComponent implements OnInit {
+list = [
+    {
+      id: '1',
+      name: 'Test'
+    },
+    {
+      id: '2',
+      name: 'David'
+    },
+    {
+      id: '3',
+      name: 'JC'
+    },
+    {
+      id: '4',
+      name: 'Peifeng'
+    },
+    {
+      id: '5',
+      name: 'Kevin'
+    },
+    {
+      id: '6',
+      name: 'Max'
+    }
+  ];
+```
 
-## Running end-to-end tests
+### 二、ngx-pf-mention Tag
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`your.component.html`
+```typescript
+<ngx-pf-mention [ngxPfMention]="component" [ngxPfMentionFactory]="factory"></ngx-pf-mention>
+```
+`your.component.ts`
+```typescript
+import { Component, ComponentFactoryResolver, Injector } from '@angular/core';
+import { TestComponent } from './test/test.component';
 
-## Further help
+export class YourComponent {
+  component = TestComponent;
+  factory;
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  constructor(
+    private _resolver: ComponentFactoryResolver,
+    private _injector: Injector
+  ) {
+    this.factory = {
+      resolver: this._resolver,
+      injector: this._injector
+    };
+  }
+}
+```
+
